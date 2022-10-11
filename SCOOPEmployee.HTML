@@ -1,0 +1,2202 @@
+SQL&gt; 
+<br>
+SQL&gt; SELECT E.EMPLOYEE_ID AS &quot;Code Employee&quot;,
+<br>
+  2     E.FIRST_NAME||' '||E.LAST_NAME AS &quot;Nom Complet&quot;,
+<br>
+  3     D.DEPARTMENT_NAME AS &quot;Nom Departement&quot;,
+<br>
+  4     J.JOB_TITLE AS &quot;Poste&quot;,
+<br>
+  5     L.STREET_ADDRESS||', '||L.POSTAL_CODE||', '||L.CITY||', '||C.COUNTRY_NAME AS &quot;RESIDENCE&quot;,
+<br>
+  6     M.LAST_NAME AS &quot;MANAGER&quot;
+<br>
+  7  FROM EMPLOYEES E
+<br>
+  8  LEFT JOIN DEPARTMENTS D ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID)
+<br>
+  9  LEFT JOIN LOCATIONS L ON (L.LOCATION_ID = D.LOCATION_ID)
+<br>
+ 10  LEFT JOIN COUNTRIES C ON (C.COUNTRY_ID = L.COUNTRY_ID)
+<br>
+ 11  LEFT JOIN JOBS J ON (J.JOB_ID = E.JOB_ID)
+<br>
+ 12  LEFT JOIN EMPLOYEES M ON (M.EMPLOYEE_ID = E.MANAGER_ID)
+<br>
+ 13  GROUP BY E.EMPLOYEE_ID, E.FIRST_NAME||' '||E.LAST_NAME, D.DEPARTMENT_NAME, J.JOB_TITLE, L.STREET_ADDRESS||', '||L.POSTAL_CODE||', '||L.CITY||', '||C.COUNTRY_NAME, M.LAST_NAME;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+Code Employee
+</th>
+<th scope="col">
+Nom Complet
+</th>
+<th scope="col">
+Nom Departement
+</th>
+<th scope="col">
+Poste
+</th>
+<th scope="col">
+RESIDENCE
+</th>
+<th scope="col">
+MANAGER
+</th>
+</tr>
+<tr>
+<td align="right">
+       129
+</td>
+<td>
+Laura Bissot
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Fripp
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td>
+Matthew Weiss
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Manager
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       107
+</td>
+<td>
+Diana Lorentz
+</td>
+<td>
+IT
+</td>
+<td>
+Programmer
+</td>
+<td>
+2014 Jabberwocky Rd, 26192, Southlake, United States of America
+</td>
+<td>
+Hunold
+</td>
+</tr>
+<tr>
+<td align="right">
+       166
+</td>
+<td>
+Sundar Ande
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Errazuriz
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td>
+Karen Partners
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Manager
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       148
+</td>
+<td>
+Gerald Cambrault
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Manager
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       101
+</td>
+<td>
+Neena Kochhar
+</td>
+<td>
+Executive
+</td>
+<td>
+Administration Vice President
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       110
+</td>
+<td>
+John Chen
+</td>
+<td>
+Finance
+</td>
+<td>
+Accountant
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Greenberg
+</td>
+</tr>
+<tr>
+<td align="right">
+       202
+</td>
+<td>
+Pat Fay
+</td>
+<td>
+Marketing
+</td>
+<td>
+Marketing Representative
+</td>
+<td>
+147 Spadina Ave, M5V 2L7, Toronto, Canada
+</td>
+<td>
+Hartstein
+</td>
+</tr>
+<tr>
+<td align="right">
+       201
+</td>
+<td>
+Michael Hartstein
+</td>
+<td>
+Marketing
+</td>
+<td>
+Marketing Manager
+</td>
+<td>
+147 Spadina Ave, M5V 2L7, Toronto, Canada
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       203
+</td>
+<td>
+Susan Mavris
+</td>
+<td>
+Human Resources
+</td>
+<td>
+Human Resources Representative
+</td>
+<td>
+8204 Arthur St, , London, United Kingdom
+</td>
+<td>
+Kochhar
+</td>
+</tr>
+<tr>
+<td align="right">
+       184
+</td>
+<td>
+Nandita Sarchand
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Fripp
+</td>
+</tr>
+<tr>
+<td align="right">
+       124
+</td>
+<td>
+Kevin Mourgos
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Manager
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       141
+</td>
+<td>
+Trenna Rajs
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Mourgos
+</td>
+</tr>
+<tr>
+<td align="right">
+       198
+</td>
+<td>
+Donald OConnell
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Mourgos
+</td>
+</tr>
+<tr>
+<td align="right">
+       138
+</td>
+<td>
+Stephen Stiles
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Vollman
+</td>
+</tr>
+<tr>
+<td align="right">
+       204
+</td>
+<td>
+Hermann Baer
+</td>
+<td>
+Public Relations
+</td>
+<td>
+Public Relations Representative
+</td>
+<td>
+Schwanthalerstr. 7031, 80925, Munich, Germany
+</td>
+<td>
+Kochhar
+</td>
+</tr>
+<tr>
+<td align="right">
+       167
+</td>
+<td>
+Amit Banda
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Errazuriz
+</td>
+</tr>
+<tr>
+<td align="right">
+       160
+</td>
+<td>
+Louise Doran
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Partners
+</td>
+</tr>
+<tr>
+<td align="right">
+       155
+</td>
+<td>
+Oliver Tuvault
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Russell
+</td>
+</tr>
+<tr>
+<td align="right">
+       116
+</td>
+<td>
+Shelli Baida
+</td>
+<td>
+Purchasing
+</td>
+<td>
+Purchasing Clerk
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Raphaely
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td>
+Mozhe Atkinson
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Fripp
+</td>
+</tr>
+<tr>
+<td align="right">
+       131
+</td>
+<td>
+James Marlow
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Fripp
+</td>
+</tr>
+<tr>
+<td align="right">
+       133
+</td>
+<td>
+Jason Mallin
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Kaufling
+</td>
+</tr>
+<tr>
+<td align="right">
+       135
+</td>
+<td>
+Ki Gee
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Kaufling
+</td>
+</tr>
+<tr>
+<td align="right">
+       189
+</td>
+<td>
+Jennifer Dilly
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Kaufling
+</td>
+</tr>
+<tr>
+<td align="right">
+       121
+</td>
+<td>
+Adam Fripp
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Manager
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td>
+Payam Kaufling
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Manager
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       143
+</td>
+<td>
+Randall Matos
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Mourgos
+</td>
+</tr>
+<tr>
+<td align="right">
+       144
+</td>
+<td>
+Peter Vargas
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Mourgos
+</td>
+</tr>
+<tr>
+<td align="right">
+       196
+</td>
+<td>
+Alana Walsh
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Mourgos
+</td>
+</tr>
+<tr>
+<td align="right">
+       197
+</td>
+<td>
+Kevin Feeney
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Mourgos
+</td>
+</tr>
+<tr>
+<td align="right">
+       192
+</td>
+<td>
+Sarah Bell
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Vollman
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td>
+Julia Nayer
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Weiss
+</td>
+</tr>
+<tr>
+<td align="right">
+       128
+</td>
+<td>
+Steven Markle
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Weiss
+</td>
+</tr>
+<tr>
+<td align="right">
+       182
+</td>
+<td>
+Martha Sullivan
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Weiss
+</td>
+</tr>
+<tr>
+<td align="right">
+       104
+</td>
+<td>
+Bruce Ernst
+</td>
+<td>
+IT
+</td>
+<td>
+Programmer
+</td>
+<td>
+2014 Jabberwocky Rd, 26192, Southlake, United States of America
+</td>
+<td>
+Hunold
+</td>
+</tr>
+<tr>
+<td align="right">
+       168
+</td>
+<td>
+Lisa Ozer
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Cambrault
+</td>
+</tr>
+<tr>
+<td align="right">
+       169
+</td>
+<td>
+Harrison Bloom
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Cambrault
+</td>
+</tr>
+<tr>
+<td align="right">
+       170
+</td>
+<td>
+Tayler Fox
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Cambrault
+</td>
+</tr>
+<tr>
+<td align="right">
+       172
+</td>
+<td>
+Elizabeth Bates
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Cambrault
+</td>
+</tr>
+<tr>
+<td align="right">
+       165
+</td>
+<td>
+David Lee
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Errazuriz
+</td>
+</tr>
+<tr>
+<td align="right">
+       161
+</td>
+<td>
+Sarath Sewall
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Partners
+</td>
+</tr>
+<tr>
+<td align="right">
+       150
+</td>
+<td>
+Peter Tucker
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Russell
+</td>
+</tr>
+<tr>
+<td align="right">
+       174
+</td>
+<td>
+Ellen Abel
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Zlotkey
+</td>
+</tr>
+<tr>
+<td align="right">
+       108
+</td>
+<td>
+Nancy Greenberg
+</td>
+<td>
+Finance
+</td>
+<td>
+Finance Manager
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Kochhar
+</td>
+</tr>
+<tr>
+<td align="right">
+       114
+</td>
+<td>
+Den Raphaely
+</td>
+<td>
+Purchasing
+</td>
+<td>
+Purchasing Manager
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       119
+</td>
+<td>
+Karen Colmenares
+</td>
+<td>
+Purchasing
+</td>
+<td>
+Purchasing Clerk
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Raphaely
+</td>
+</tr>
+<tr>
+<td align="right">
+       187
+</td>
+<td>
+Anthony Cabrio
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Fripp
+</td>
+</tr>
+<tr>
+<td align="right">
+       199
+</td>
+<td>
+Douglas Grant
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Mourgos
+</td>
+</tr>
+<tr>
+<td align="right">
+       137
+</td>
+<td>
+Renske Ladwig
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Vollman
+</td>
+</tr>
+<tr>
+<td align="right">
+       183
+</td>
+<td>
+Girard Geoni
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Weiss
+</td>
+</tr>
+<tr>
+<td align="right">
+       162
+</td>
+<td>
+Clara Vishney
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Errazuriz
+</td>
+</tr>
+<tr>
+<td align="right">
+       159
+</td>
+<td>
+Lindsey Smith
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Partners
+</td>
+</tr>
+<tr>
+<td align="right">
+       111
+</td>
+<td>
+Ismael Sciarra
+</td>
+<td>
+Finance
+</td>
+<td>
+Accountant
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Greenberg
+</td>
+</tr>
+<tr>
+<td align="right">
+       117
+</td>
+<td>
+Sigal Tobias
+</td>
+<td>
+Purchasing
+</td>
+<td>
+Purchasing Clerk
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Raphaely
+</td>
+</tr>
+<tr>
+<td align="right">
+       132
+</td>
+<td>
+TJ Olson
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Fripp
+</td>
+</tr>
+<tr>
+<td align="right">
+       134
+</td>
+<td>
+Michael Rogers
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Kaufling
+</td>
+</tr>
+<tr>
+<td align="right">
+       188
+</td>
+<td>
+Kelly Chung
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Kaufling
+</td>
+</tr>
+<tr>
+<td align="right">
+       190
+</td>
+<td>
+Timothy Gates
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Kaufling
+</td>
+</tr>
+<tr>
+<td align="right">
+       191
+</td>
+<td>
+Randall Perkins
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Kaufling
+</td>
+</tr>
+<tr>
+<td align="right">
+       139
+</td>
+<td>
+John Seo
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Vollman
+</td>
+</tr>
+<tr>
+<td align="right">
+       140
+</td>
+<td>
+Joshua Patel
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Vollman
+</td>
+</tr>
+<tr>
+<td align="right">
+       180
+</td>
+<td>
+Winston Taylor
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Weiss
+</td>
+</tr>
+<tr>
+<td align="right">
+       181
+</td>
+<td>
+Jean Fleaur
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Weiss
+</td>
+</tr>
+<tr>
+<td align="right">
+       106
+</td>
+<td>
+Valli Pataballa
+</td>
+<td>
+IT
+</td>
+<td>
+Programmer
+</td>
+<td>
+2014 Jabberwocky Rd, 26192, Southlake, United States of America
+</td>
+<td>
+Hunold
+</td>
+</tr>
+<tr>
+<td align="right">
+       164
+</td>
+<td>
+Mattea Marvins
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Errazuriz
+</td>
+</tr>
+<tr>
+<td align="right">
+       156
+</td>
+<td>
+Janette King
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Partners
+</td>
+</tr>
+<tr>
+<td align="right">
+       157
+</td>
+<td>
+Patrick Sully
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Partners
+</td>
+</tr>
+<tr>
+<td align="right">
+       152
+</td>
+<td>
+Peter Hall
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Russell
+</td>
+</tr>
+<tr>
+<td align="right">
+       154
+</td>
+<td>
+Nanette Cambrault
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Russell
+</td>
+</tr>
+<tr>
+<td align="right">
+       175
+</td>
+<td>
+Alyssa Hutton
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Zlotkey
+</td>
+</tr>
+<tr>
+<td align="right">
+       109
+</td>
+<td>
+Daniel Faviet
+</td>
+<td>
+Finance
+</td>
+<td>
+Accountant
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Greenberg
+</td>
+</tr>
+<tr>
+<td align="right">
+       113
+</td>
+<td>
+Luis Popp
+</td>
+<td>
+Finance
+</td>
+<td>
+Accountant
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Greenberg
+</td>
+</tr>
+<tr>
+<td align="right">
+       205
+</td>
+<td>
+Shelley Higgins
+</td>
+<td>
+Accounting
+</td>
+<td>
+Accounting Manager
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Kochhar
+</td>
+</tr>
+<tr>
+<td align="right">
+       200
+</td>
+<td>
+Jennifer Whalen
+</td>
+<td>
+Administration
+</td>
+<td>
+Administration Assistant
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Kochhar
+</td>
+</tr>
+<tr>
+<td align="right">
+       115
+</td>
+<td>
+Alexander Khoo
+</td>
+<td>
+Purchasing
+</td>
+<td>
+Purchasing Clerk
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Raphaely
+</td>
+</tr>
+<tr>
+<td align="right">
+       136
+</td>
+<td>
+Hazel Philtanker
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Kaufling
+</td>
+</tr>
+<tr>
+<td align="right">
+       123
+</td>
+<td>
+Shanta Vollman
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Manager
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td>
+Curtis Davies
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Mourgos
+</td>
+</tr>
+<tr>
+<td align="right">
+       195
+</td>
+<td>
+Vance Jones
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Vollman
+</td>
+</tr>
+<tr>
+<td align="right">
+       126
+</td>
+<td>
+Irene Mikkilineni
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Weiss
+</td>
+</tr>
+<tr>
+<td align="right">
+       103
+</td>
+<td>
+Alexander Hunold
+</td>
+<td>
+IT
+</td>
+<td>
+Programmer
+</td>
+<td>
+2014 Jabberwocky Rd, 26192, Southlake, United States of America
+</td>
+<td>
+De Haan
+</td>
+</tr>
+<tr>
+<td align="right">
+       105
+</td>
+<td>
+David Austin
+</td>
+<td>
+IT
+</td>
+<td>
+Programmer
+</td>
+<td>
+2014 Jabberwocky Rd, 26192, Southlake, United States of America
+</td>
+<td>
+Hunold
+</td>
+</tr>
+<tr>
+<td align="right">
+       171
+</td>
+<td>
+William Smith
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Cambrault
+</td>
+</tr>
+<tr>
+<td align="right">
+       149
+</td>
+<td>
+Eleni Zlotkey
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Manager
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       177
+</td>
+<td>
+Jack Livingston
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Zlotkey
+</td>
+</tr>
+<tr>
+<td align="right">
+       100
+</td>
+<td>
+Steven King
+</td>
+<td>
+Executive
+</td>
+<td>
+President
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td align="right">
+       112
+</td>
+<td>
+Jose Manuel Urman
+</td>
+<td>
+Finance
+</td>
+<td>
+Accountant
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Greenberg
+</td>
+</tr>
+<tr>
+<td align="right">
+       118
+</td>
+<td>
+Guy Himuro
+</td>
+<td>
+Purchasing
+</td>
+<td>
+Purchasing Clerk
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Raphaely
+</td>
+</tr>
+<tr>
+<td align="right">
+       186
+</td>
+<td>
+Julia Dellinger
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Fripp
+</td>
+</tr>
+<tr>
+<td align="right">
+       193
+</td>
+<td>
+Britney Everett
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Vollman
+</td>
+</tr>
+<tr>
+<td align="right">
+       173
+</td>
+<td>
+Sundita Kumar
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Cambrault
+</td>
+</tr>
+<tr>
+<td align="right">
+       163
+</td>
+<td>
+Danielle Greene
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Errazuriz
+</td>
+</tr>
+<tr>
+<td align="right">
+       145
+</td>
+<td>
+John Russell
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Manager
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       158
+</td>
+<td>
+Allan McEwen
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Partners
+</td>
+</tr>
+<tr>
+<td align="right">
+       153
+</td>
+<td>
+Christopher Olsen
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Russell
+</td>
+</tr>
+<tr>
+<td align="right">
+       176
+</td>
+<td>
+Jonathon Taylor
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Zlotkey
+</td>
+</tr>
+<tr>
+<td align="right">
+       206
+</td>
+<td>
+William Gietz
+</td>
+<td>
+Accounting
+</td>
+<td>
+Public Accountant
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+Higgins
+</td>
+</tr>
+<tr>
+<td align="right">
+       185
+</td>
+<td>
+Alexis Bull
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Fripp
+</td>
+</tr>
+<tr>
+<td align="right">
+       194
+</td>
+<td>
+Samuel McCain
+</td>
+<td>
+Shipping
+</td>
+<td>
+Shipping Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Vollman
+</td>
+</tr>
+<tr>
+<td align="right">
+       127
+</td>
+<td>
+James Landry
+</td>
+<td>
+Shipping
+</td>
+<td>
+Stock Clerk
+</td>
+<td>
+2011 Interiors Blvd, 99236, South San Francisco, United States of America
+</td>
+<td>
+Weiss
+</td>
+</tr>
+<tr>
+<td align="right">
+       147
+</td>
+<td>
+Alberto Errazuriz
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Manager
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       151
+</td>
+<td>
+David Bernstein
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Russell
+</td>
+</tr>
+<tr>
+<td align="right">
+       179
+</td>
+<td>
+Charles Johnson
+</td>
+<td>
+Sales
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+Magdalen Centre, The Oxford Science Park, OX9 9ZB, Oxford, United Kingdom
+</td>
+<td>
+Zlotkey
+</td>
+</tr>
+<tr>
+<td align="right">
+       102
+</td>
+<td>
+Lex De Haan
+</td>
+<td>
+Executive
+</td>
+<td>
+Administration Vice President
+</td>
+<td>
+2004 Charade Rd, 98199, Seattle, United States of America
+</td>
+<td>
+King
+</td>
+</tr>
+<tr>
+<td align="right">
+       178
+</td>
+<td>
+Kimberely Grant
+</td>
+<td>
+_
+</td>
+<td>
+Sales Representative
+</td>
+<td>
+, , , 
+</td>
+<td>
+Zlotkey
+</td>
+</tr>
+</table>
+<p>
+
+107 rows selected.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; SET MARKUP HTML OFF
+<br>
+SQL> SPOOL OFF

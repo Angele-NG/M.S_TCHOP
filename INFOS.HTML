@@ -1,0 +1,862 @@
+SQL&gt; 
+<br>
+SQL&gt; SELECT DISTINCT DEPARTMENT_NAME,
+<br>
+  2         COUNT(DISTINCT(E.EMPLOYEE_ID)) AS &quot;NOMBRE D'EMPLOYES&quot;,
+<br>
+  3     SUM(E.SALARY*(1+NVL(E.COMMISSION_PCT, 0))*560)||' francs CFA' AS &quot;MASSE SALARIALE&quot;,
+<br>
+  4     MAX(E.HIRE_DATE) AS &quot;DERNIERE DATE D'EMBAUCHE&quot;,
+<br>
+  5     MIN(E.HIRE_DATE) AS &quot;PREMIERE DATE D'EMBAUCHE&quot;,
+<br>
+  6     M.LAST_NAME AS &quot;MANAGER&quot;,
+<br>
+  7     COUNT(DISTINCT(E.JOB_ID)) AS &quot;NOMBRE DE POSTES&quot;,
+<br>
+  8     M.SALARY*(1+NVL(M.COMMISSION_PCT, 0)) AS &quot;SALAIRE DU MANAGER&quot;,
+<br>
+  9     (SELECT PHONE_NUMBER
+<br>
+ 10          FROM EMPLOYEES
+<br>
+ 11          WHERE SALARY = (SELECT MIN(SALARY) FROM EMPLOYEES WHERE DEPARTMENT_ID = D.DEPARTMENT_ID)
+<br>
+ 12  AND HIRE_DATE = (SELECT MAX(HIRE_DATE) FROM EMPLOYEES WHERE DEPARTMENT_ID = D.DEPARTMENT_ID)) AS &quot;NUMERO DU DEPARTEMENT&quot;
+<br>
+ 13  FROM DEPARTMENTS D
+<br>
+ 14  LEFT OUTER JOIN EMPLOYEES E ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID)
+<br>
+ 15  LEFT OUTER JOIN EMPLOYEES M ON (M.EMPLOYEE_ID = D.MANAGER_ID)
+<br>
+ 16  LEFT OUTER JOIN JOBS J ON (J.JOB_ID = E.JOB_ID)
+<br>
+ 17  GROUP BY M.LAST_NAME, D.DEPARTMENT_ID, DEPARTMENT_NAME, M.SALARY*(1+NVL(M.COMMISSION_PCT, 0));
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+DEPARTMENT_NAME
+</th>
+<th scope="col">
+NOMBRE D'EMPLOYES
+</th>
+<th scope="col">
+MASSE SALARIALE
+</th>
+<th scope="col">
+DERNIERE
+</th>
+<th scope="col">
+PREMIERE
+</th>
+<th scope="col">
+MANAGER
+</th>
+<th scope="col">
+NOMBRE DE POSTES
+</th>
+<th scope="col">
+SALAIRE DU MANAGER
+</th>
+<th scope="col">
+NUMERO DU DEPARTEMEN
+</th>
+</tr>
+<tr>
+<td>
+Executive
+</td>
+<td align="right">
+         3
+</td>
+<td>
+32480000 francs CFA
+</td>
+<td>
+21-SEP-05
+</td>
+<td>
+13-JAN-01
+</td>
+<td>
+King
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+     24000
+</td>
+<td>
+515.123.4568
+</td>
+</tr>
+<tr>
+<td>
+IT
+</td>
+<td align="right">
+         5
+</td>
+<td>
+16128000 francs CFA
+</td>
+<td>
+21-MAY-07
+</td>
+<td>
+25-JUN-05
+</td>
+<td>
+Hunold
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+      9000
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Finance
+</td>
+<td align="right">
+         6
+</td>
+<td>
+28900480 francs CFA
+</td>
+<td>
+07-DEC-07
+</td>
+<td>
+16-AUG-02
+</td>
+<td>
+Greenberg
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+     12008
+</td>
+<td>
+515.124.4567
+</td>
+</tr>
+<tr>
+<td>
+Purchasing
+</td>
+<td align="right">
+         6
+</td>
+<td>
+13944000 francs CFA
+</td>
+<td>
+10-AUG-07
+</td>
+<td>
+07-DEC-02
+</td>
+<td>
+Raphaely
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+     11000
+</td>
+<td>
+515.127.4566
+</td>
+</tr>
+<tr>
+<td>
+Shipping
+</td>
+<td align="right">
+        45
+</td>
+<td>
+87584000 francs CFA
+</td>
+<td>
+08-MAR-08
+</td>
+<td>
+01-MAY-03
+</td>
+<td>
+Fripp
+</td>
+<td align="right">
+         3
+</td>
+<td align="right">
+      8200
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Sales
+</td>
+<td align="right">
+        34
+</td>
+<td>
+211198400 francs CFA
+</td>
+<td>
+21-APR-08
+</td>
+<td>
+30-JAN-04
+</td>
+<td>
+Russell
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+     19600
+</td>
+<td>
+011.44.1343.329268
+</td>
+</tr>
+<tr>
+<td>
+Administration
+</td>
+<td align="right">
+         1
+</td>
+<td>
+2464000 francs CFA
+</td>
+<td>
+17-SEP-03
+</td>
+<td>
+17-SEP-03
+</td>
+<td>
+Whalen
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+      4400
+</td>
+<td>
+515.123.4444
+</td>
+</tr>
+<tr>
+<td>
+Marketing
+</td>
+<td align="right">
+         2
+</td>
+<td>
+10640000 francs CFA
+</td>
+<td>
+17-AUG-05
+</td>
+<td>
+17-FEB-04
+</td>
+<td>
+Hartstein
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+     13000
+</td>
+<td>
+603.123.6666
+</td>
+</tr>
+<tr>
+<td>
+Human Resources
+</td>
+<td align="right">
+         1
+</td>
+<td>
+3640000 francs CFA
+</td>
+<td>
+07-JUN-02
+</td>
+<td>
+07-JUN-02
+</td>
+<td>
+Mavris
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+      6500
+</td>
+<td>
+515.123.7777
+</td>
+</tr>
+<tr>
+<td>
+Public Relations
+</td>
+<td align="right">
+         1
+</td>
+<td>
+5600000 francs CFA
+</td>
+<td>
+07-JUN-02
+</td>
+<td>
+07-JUN-02
+</td>
+<td>
+Baer
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+     10000
+</td>
+<td>
+515.123.8888
+</td>
+</tr>
+<tr>
+<td>
+Accounting
+</td>
+<td align="right">
+         2
+</td>
+<td>
+11372480 francs CFA
+</td>
+<td>
+07-JUN-02
+</td>
+<td>
+07-JUN-02
+</td>
+<td>
+Higgins
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+     12008
+</td>
+<td>
+515.123.8181
+</td>
+</tr>
+<tr>
+<td>
+Treasury
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Corporate Tax
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Control And Credit
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Shareholder Services
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Benefits
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Manufacturing
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Construction
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Contracting
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Operations
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+IT Support
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+NOC
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+IT Helpdesk
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Government Sales
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Retail Sales
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Recruiting
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+<tr>
+<td>
+Payroll
+</td>
+<td align="right">
+         0
+</td>
+<td>
+ francs CFA
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td>
+_
+</td>
+<td align="right">
+         0
+</td>
+<td align="right">
+_
+</td>
+<td>
+_
+</td>
+</tr>
+</table>
+<p>
+
+27 rows selected.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; SET MARKUP HTML OFF
+<br>
+SQL> SPOOL OFF
