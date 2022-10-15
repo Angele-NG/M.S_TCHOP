@@ -315,5 +315,6 @@ CREATE TABLE Sound_purchase_client
 	amount NUMBER(10,2)
 );
 
+by angele 
 
 COMMIT;
